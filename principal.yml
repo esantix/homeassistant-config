@@ -1,358 +1,359 @@
-title: Controles    
-header: {}
-background:
-  opacity: 30
-  alignment: center
-  size: cover
-  repeat: repeat
-  attachment: scroll
-type: sections
-icon: mdi:home
-cards: []
-path: controls
-max_columns: 4
-theme: minimalist-desktop
-top_margin: false
-sections:
-  - name: luces
-    type: grid
-    cards:
-      - type: heading
-        show_icon: false
-        heading: Luces
-        heading_style: title
-      - name: luz-comedor
+views:    
+  - title: Controles    
+    header: {}
+    background:
+      opacity: 30
+      alignment: center
+      size: cover
+      repeat: repeat
+      attachment: scroll
+    type: sections
+    icon: mdi:home
+    cards: []
+    path: controls
+    max_columns: 4
+    theme: minimalist-desktop
+    top_margin: false
+    sections:
+      - name: luces
         type: grid
-        columns: 1
-        square: false
         cards:
-          - type: custom:big-slider-card
-            entity: light.comedor
-            show_icon: true
-            icon: mdi:sofa
-            color: >
-              [[[ return states['vacuum.jaime'].state
-              !== 'docked' ? 'rgb(82, 45, 128)' : 'grey'; ]]]
-          - type: grid
-            columns: 3
+          - type: heading
+            show_icon: false
+            heading: Luces
+            heading_style: title
+          - name: luz-comedor
+            type: grid
+            columns: 1
             square: false
             cards:
-              - type: custom:button-card
-                section_mode: true
-                icon: mdi:lightbulb
-                color_type: icon
-                color: rgb(255,214,170)
-                tap_action:
-                  action: call-service
-                  service: light.turn_on
-                  target:
-                    entity_id: light.comedor
-                  data:
-                    rgb_color:
-                      - 255
-                      - 214
-                      - 170
-              - type: custom:button-card
-                section_mode: true
-                icon: mdi:lightbulb
-                color_type: icon
-                color: rgb(255,255,255)
-                tap_action:
-                  action: call-service
-                  service: light.turn_on
-                  target:
-                    entity_id: light.comedor
-                  data:
-                    rgb_color:
-                      - 255
-                      - 255
-                      - 255
-              - type: custom:button-card
-                section_mode: true
-                icon: mdi:lightbulb-off
-                color_type: icon
-                color: rgb(128,128,128)
-                tap_action:
-                  action: call-service
-                  service: light.turn_off
-                  target:
-                    entity_id: light.comedor
-      - name: luz-dormitorio
-        type: grid
-        columns: 1
-        square: false
-        cards:
-          - type: custom:big-slider-card
-            entity: light.dormitorio
-            show_icon: true
-            icon: mdi:bed
-            card_mod:
-              style: |
-                .icon {
-                  display: none !important;
-                }
-          - type: grid
-            columns: 3
+              - type: custom:big-slider-card
+                entity: light.comedor
+                show_icon: true
+                icon: mdi:sofa
+                color: >
+                  [[[ return states['vacuum.jaime'].state
+                  !== 'docked' ? 'rgb(82, 45, 128)' : 'grey'; ]]]
+              - type: grid
+                columns: 3
+                square: false
+                cards:
+                  - type: custom:button-card
+                    section_mode: true
+                    icon: mdi:lightbulb
+                    color_type: icon
+                    color: rgb(255,214,170)
+                    tap_action:
+                      action: call-service
+                      service: light.turn_on
+                      target:
+                        entity_id: light.comedor
+                      data:
+                        rgb_color:
+                          - 255
+                          - 214
+                          - 170
+                  - type: custom:button-card
+                    section_mode: true
+                    icon: mdi:lightbulb
+                    color_type: icon
+                    color: rgb(255,255,255)
+                    tap_action:
+                      action: call-service
+                      service: light.turn_on
+                      target:
+                        entity_id: light.comedor
+                      data:
+                        rgb_color:
+                          - 255
+                          - 255
+                          - 255
+                  - type: custom:button-card
+                    section_mode: true
+                    icon: mdi:lightbulb-off
+                    color_type: icon
+                    color: rgb(128,128,128)
+                    tap_action:
+                      action: call-service
+                      service: light.turn_off
+                      target:
+                        entity_id: light.comedor
+          - name: luz-dormitorio
+            type: grid
+            columns: 1
             square: false
             cards:
-              - type: custom:button-card
-                section_mode: true
-                icon: mdi:lightbulb
-                color_type: icon
-                color: rgb(255,214,170)
-                tap_action:
-                  action: call-service
-                  service: light.turn_on
-                  target:
-                    entity_id: light.dormitorio
-                  data:
-                    rgb_color:
-                      - 255
-                      - 214
-                      - 170
-              - type: custom:button-card
-                section_mode: true
-                icon: mdi:lightbulb
-                color_type: icon
-                color: rgb(255,255,255)
-                tap_action:
-                  action: call-service
-                  service: light.turn_on
-                  target:
-                    entity_id: light.dormitorio
-                  data:
-                    rgb_color:
-                      - 255
-                      - 255
-                      - 255
-              - type: custom:button-card
-                section_mode: true
-                icon: mdi:lightbulb-off
-                color_type: icon
-                color: rgb(128,128,128)
-                tap_action:
-                  action: call-service
-                  service: light.turn_off
-                  target:
-                    entity_id: light.dormitorio
-      - name: luz-escritorio
-        type: grid
-        columns: 1
-        square: false
-        cards:
-          - type: custom:big-slider-card
-            entity: light.escritorio
-            show_icon: true
-            icon: mdi:chair-rolling
-            card_mod:
-              style: |
-                .icon {
-                  display: none !important;
-                }
-          - type: grid
-            columns: 3
+              - type: custom:big-slider-card
+                entity: light.dormitorio
+                show_icon: true
+                icon: mdi:bed
+                card_mod:
+                  style: |
+                    .icon {
+                      display: none !important;
+                    }
+              - type: grid
+                columns: 3
+                square: false
+                cards:
+                  - type: custom:button-card
+                    section_mode: true
+                    icon: mdi:lightbulb
+                    color_type: icon
+                    color: rgb(255,214,170)
+                    tap_action:
+                      action: call-service
+                      service: light.turn_on
+                      target:
+                        entity_id: light.dormitorio
+                      data:
+                        rgb_color:
+                          - 255
+                          - 214
+                          - 170
+                  - type: custom:button-card
+                    section_mode: true
+                    icon: mdi:lightbulb
+                    color_type: icon
+                    color: rgb(255,255,255)
+                    tap_action:
+                      action: call-service
+                      service: light.turn_on
+                      target:
+                        entity_id: light.dormitorio
+                      data:
+                        rgb_color:
+                          - 255
+                          - 255
+                          - 255
+                  - type: custom:button-card
+                    section_mode: true
+                    icon: mdi:lightbulb-off
+                    color_type: icon
+                    color: rgb(128,128,128)
+                    tap_action:
+                      action: call-service
+                      service: light.turn_off
+                      target:
+                        entity_id: light.dormitorio
+          - name: luz-escritorio
+            type: grid
+            columns: 1
             square: false
             cards:
-              - type: custom:button-card
-                section_mode: true
-                icon: mdi:lightbulb
-                color_type: icon
-                color: rgb(255,214,170)
+              - type: custom:big-slider-card
+                entity: light.escritorio
+                show_icon: true
+                icon: mdi:chair-rolling
+                card_mod:
+                  style: |
+                    .icon {
+                      display: none !important;
+                    }
+              - type: grid
+                columns: 3
+                square: false
+                cards:
+                  - type: custom:button-card
+                    section_mode: true
+                    icon: mdi:lightbulb
+                    color_type: icon
+                    color: rgb(255,214,170)
+                    tap_action:
+                      action: call-service
+                      service: light.turn_on
+                      target:
+                        entity_id: light.escritorio
+                      data:
+                        rgb_color:
+                          - 255
+                          - 214
+                          - 170
+                  - type: custom:button-card
+                    section_mode: true
+                    icon: mdi:lightbulb
+                    color_type: icon
+                    color: rgb(255,255,255)
+                    tap_action:
+                      action: call-service
+                      service: light.turn_on
+                      target:
+                        entity_id: light.escritorio
+                      data:
+                        rgb_color:
+                          - 255
+                          - 255
+                          - 255
+                  - type: custom:button-card
+                    section_mode: true
+                    icon: mdi:lightbulb-off
+                    color_type: icon
+                    color: rgb(128,128,128)
+                    tap_action:
+                      action: call-service
+                      service: light.turn_off
+                      target:
+                        entity_id: light.escritorio
+      - name: aspiradora
+        type: grid
+        cards:
+          - type: heading
+            heading: Aspiradora
+            heading_style: title
+          - square: false
+            type: grid
+            cards:
+              - show_name: false
+                show_icon: true
+                icon: mdi:broom
+                color_style: icon
+                color: rgb(82, 45, 128)
+                type: custom:button-card
+                styles:
+                  icon:
+                    - color: >
+                        [[[ return states['vacuum.jaime'].state
+                        !== 'cleaning' ? 'rgb(82, 45, 128)' : 'grey'; ]]]
                 tap_action:
                   action: call-service
-                  service: light.turn_on
+                  service: vacuum.start
                   target:
-                    entity_id: light.escritorio
+                    entity_id: vacuum.jaime
+              - show_name: false
+                show_icon: true
+                color_style: icon
+                color: rgb(82, 45, 128)
+                type: custom:button-card
+                styles:
+                  icon:
+                    - color: >
+                        [[[ return states['vacuum.jaime'].state
+                        !== 'docked' ? 'rgb(82, 45, 128)' : 'grey'; ]]]
+                tap_action:
+                  action: call-service
+                  service: vacuum.return_to_base
+                  target:
+                    entity_id: vacuum.jaime
+                icon: mdi:home-import-outline
+            grid_options:
+              columns: 36
+              rows: auto
+            columns: 2
+          - square: false
+            type: grid
+            columns: 4
+            cards:
+              - type: custom:button-card
+                icon: mdi:sofa
+                color_style: icon
+                color: rgb(128, 128, 128)
+                tap_action:
+                  action: call-service
+                  service: sharkiq.clean_room
                   data:
-                    rgb_color:
-                      - 255
-                      - 214
-                      - 170
+                    rooms:
+                      - Habitación
+                  target:
+                    entity_id: vacuum.jaime
               - type: custom:button-card
-                section_mode: true
-                icon: mdi:lightbulb
-                color_type: icon
-                color: rgb(255,255,255)
+                icon: mdi:bed
+                color_style: icon
+                color: rgb(128, 128, 128)
                 tap_action:
                   action: call-service
-                  service: light.turn_on
-                  target:
-                    entity_id: light.escritorio
+                  service: sharkiq.clean_room
                   data:
-                    rgb_color:
-                      - 255
-                      - 255
-                      - 255
+                    rooms:
+                      - Habitación
+                  target:
+                    entity_id: vacuum.jaime
               - type: custom:button-card
-                section_mode: true
-                icon: mdi:lightbulb-off
-                color_type: icon
-                color: rgb(128,128,128)
+                icon: mdi:chair-rolling
+                color_style: icon
+                color: rgb(82, 45, 128)
                 tap_action:
                   action: call-service
-                  service: light.turn_off
+                  service: sharkiq.clean_room
+                  data:
+                    rooms:
+                      - Habitación
                   target:
-                    entity_id: light.escritorio
-  - name: aspiradora
-    type: grid
-    cards:
-      - type: heading
-        heading: Aspiradora
-        heading_style: title
-      - square: false
-        type: grid
-        cards:
-          - show_name: false
-            show_icon: true
-            icon: mdi:broom
-            color_style: icon
-            color: rgb(82, 45, 128)
-            type: custom:button-card
-            styles:
-              icon:
-                - color: >
-                    [[[ return states['vacuum.jaime'].state
-                    !== 'cleaning' ? 'rgb(82, 45, 128)' : 'grey'; ]]]
-            tap_action:
-              action: call-service
-              service: vacuum.start
-              target:
-                entity_id: vacuum.jaime
-          - show_name: false
-            show_icon: true
-            color_style: icon
-            color: rgb(82, 45, 128)
-            type: custom:button-card
-            styles:
-              icon:
-                - color: >
-                    [[[ return states['vacuum.jaime'].state
-                    !== 'docked' ? 'rgb(82, 45, 128)' : 'grey'; ]]]
-            tap_action:
-              action: call-service
-              service: vacuum.return_to_base
-              target:
-                entity_id: vacuum.jaime
-            icon: mdi:home-import-outline
-        grid_options:
-          columns: 36
-          rows: auto
-        columns: 2
-      - square: false
-        type: grid
-        columns: 4
-        cards:
-          - type: custom:button-card
-            icon: mdi:sofa
-            color_style: icon
-            color: rgb(128, 128, 128)
-            tap_action:
-              action: call-service
-              service: sharkiq.clean_room
-              data:
-                rooms:
-                  - Habitación
-              target:
-                entity_id: vacuum.jaime
-          - type: custom:button-card
-            icon: mdi:bed
-            color_style: icon
-            color: rgb(128, 128, 128)
-            tap_action:
-              action: call-service
-              service: sharkiq.clean_room
-              data:
-                rooms:
-                  - Habitación
-              target:
-                entity_id: vacuum.jaime
-          - type: custom:button-card
-            icon: mdi:chair-rolling
-            color_style: icon
-            color: rgb(82, 45, 128)
-            tap_action:
-              action: call-service
-              service: sharkiq.clean_room
-              data:
-                rooms:
-                  - Habitación
-              target:
-                entity_id: vacuum.jaime
-          - type: custom:button-card
-            icon: mdi:faucet-variant
-            color_style: icon
-            color: rgb(128, 128, 128)
-            tap_action:
-              action: call-service
-              service: sharkiq.clean_room
-              data:
-                rooms:
-                  - Habitación
-              target:
-                entity_id: vacuum.jaime
-        grid_options:
-          columns: 12
-          rows: 1
-      - square: true
-        type: grid
-        cards:
-          - show_name: false
-            show_icon: true
-            icon: mdi:fan-speed-1
-            color_style: icon
-            type: custom:button-card
-            tap_action:
-              action: call-service
-              service: vacuum.set_fan_speed
-              target:
-                entity_id: vacuum.jaime
-              data:
-                fan_speed: eco
-            styles:
-              icon:
-                - color: >
-                    [[[ return states['vacuum.jaime'].attributes.fan_speed
-                    === 'Eco' ? 'rgb(123, 68, 192)' : 'rgb(82, 45, 128)' ; ]]]
-          - show_name: false
-            show_icon: true
-            color_style: icon
-            color: rgb(82, 45, 128)
-            type: custom:button-card
-            styles:
-              icon:
-                - color: >
-                    [[[ return states['vacuum.jaime'].attributes.fan_speed
-                    === 'Normal' ? 'rgb(123, 68, 192)' : 'rgb(82, 45, 128)' ; ]]]
-            tap_action:
-              action: call-service
-              service: vacuum.set_fan_speed
-              target:
-                entity_id: vacuum.jaime
-              data:
-                fan_speed: normal
-            icon: mdi:fan-speed-2
-          - show_name: false
-            show_icon: true
-            color_style: icon
-            color: rgb(123, 68, 192)
-            type: custom:button-card
-            styles:
-              icon:
-                - color: >
-                    [[[ return states['vacuum.jaime'].attributes.fan_speed
-                    === 'Max' ? 'rgb(123, 68, 192)' : 'rgb(82, 45, 128)' ; ]]]
-            tap_action:
-              action: call-service
-              service: vacuum.set_fan_speed
-              target:
-                entity_id: vacuum.jaime
-              data:
-                fan_speed: max
-            icon: mdi:fan-speed-3
-        grid_options:
-          rows: 2
-          columns: full
-        columns: 3
-    column_span: 1
+                    entity_id: vacuum.jaime
+              - type: custom:button-card
+                icon: mdi:faucet-variant
+                color_style: icon
+                color: rgb(128, 128, 128)
+                tap_action:
+                  action: call-service
+                  service: sharkiq.clean_room
+                  data:
+                    rooms:
+                      - Habitación
+                  target:
+                    entity_id: vacuum.jaime
+            grid_options:
+              columns: 12
+              rows: 1
+          - square: true
+            type: grid
+            cards:
+              - show_name: false
+                show_icon: true
+                icon: mdi:fan-speed-1
+                color_style: icon
+                type: custom:button-card
+                tap_action:
+                  action: call-service
+                  service: vacuum.set_fan_speed
+                  target:
+                    entity_id: vacuum.jaime
+                  data:
+                    fan_speed: eco
+                styles:
+                  icon:
+                    - color: >
+                        [[[ return states['vacuum.jaime'].attributes.fan_speed
+                        === 'Eco' ? 'rgb(123, 68, 192)' : 'rgb(82, 45, 128)' ; ]]]
+              - show_name: false
+                show_icon: true
+                color_style: icon
+                color: rgb(82, 45, 128)
+                type: custom:button-card
+                styles:
+                  icon:
+                    - color: >
+                        [[[ return states['vacuum.jaime'].attributes.fan_speed
+                        === 'Normal' ? 'rgb(123, 68, 192)' : 'rgb(82, 45, 128)' ; ]]]
+                tap_action:
+                  action: call-service
+                  service: vacuum.set_fan_speed
+                  target:
+                    entity_id: vacuum.jaime
+                  data:
+                    fan_speed: normal
+                icon: mdi:fan-speed-2
+              - show_name: false
+                show_icon: true
+                color_style: icon
+                color: rgb(123, 68, 192)
+                type: custom:button-card
+                styles:
+                  icon:
+                    - color: >
+                        [[[ return states['vacuum.jaime'].attributes.fan_speed
+                        === 'Max' ? 'rgb(123, 68, 192)' : 'rgb(82, 45, 128)' ; ]]]
+                tap_action:
+                  action: call-service
+                  service: vacuum.set_fan_speed
+                  target:
+                    entity_id: vacuum.jaime
+                  data:
+                    fan_speed: max
+                icon: mdi:fan-speed-3
+            grid_options:
+              rows: 2
+              columns: full
+            columns: 3
+        column_span: 1
 
 
