@@ -1,5 +1,5 @@
-views:    
-  - title: Controles    
+views:
+  - title: Controles
     header: {}
     background:
       opacity: 30
@@ -31,9 +31,6 @@ views:
                 entity: light.comedor
                 show_icon: true
                 icon: mdi:sofa
-                color: >
-                  [[[ return states['vacuum.jaime'].state
-                  !== 'docked' ? 'rgb(82, 45, 128)' : 'grey'; ]]]
               - type: grid
                 columns: 3
                 square: false
@@ -194,4 +191,166 @@ views:
                       service: light.turn_off
                       target:
                         entity_id: light.escritorio
- 
+      - name: aspiradora
+        type: grid
+        cards:
+          - type: heading
+            heading: Aspiradora
+            heading_style: title
+          - square: false
+            type: grid
+            cards:
+              - show_name: false
+                show_icon: true
+                icon: mdi:broom
+                color_style: icon
+                color: rgb(82, 45, 128)
+                type: custom:button-card
+                styles:
+                  icon:
+                    - color: >
+                        [[[ return states['vacuum.jaime'].state !== 'cleaning' ?
+                        'rgb(82, 45, 128)' : 'grey'; ]]]
+                tap_action:
+                  action: call-service
+                  service: vacuum.start
+                  target:
+                    entity_id: vacuum.jaime
+              - show_name: false
+                show_icon: true
+                color_style: icon
+                color: rgb(82, 45, 128)
+                type: custom:button-card
+                styles:
+                  icon:
+                    - color: >
+                        [[[ return states['vacuum.jaime'].state !== 'docked' ?
+                        'rgb(82, 45, 128)' : 'grey'; ]]]
+                tap_action:
+                  action: call-service
+                  service: vacuum.return_to_base
+                  target:
+                    entity_id: vacuum.jaime
+                icon: mdi:home-import-outline
+            grid_options:
+              columns: 36
+              rows: auto
+            columns: 2
+          - square: false
+            type: grid
+            columns: 4
+            cards:
+              - type: custom:button-card
+                icon: mdi:sofa
+                color_style: icon
+                color: rgb(82, 45, 128)
+                tap_action:
+                  action: call-service
+                  service: sharkiq.clean_room
+                  data:
+                    rooms:
+                      - comedor
+                  target:
+                    entity_id: vacuum.jaime
+              - type: custom:button-card
+                icon: mdi:bed
+                color_style: icon
+                color: rgb(82, 45, 128)
+                tap_action:
+                  action: call-service
+                  service: sharkiq.clean_room
+                  data:
+                    rooms:
+                      - dormitorio
+                  target:
+                    entity_id: vacuum.jaime
+              - type: custom:button-card
+                icon: mdi:chair-rolling
+                color_style: icon
+                color: rgb(82, 45, 128)
+                tap_action:
+                  action: call-service
+                  service: sharkiq.clean_room
+                  data:
+                    rooms:
+                      - escritorio
+                  target:
+                    entity_id: vacuum.jaime
+              - type: custom:button-card
+                icon: mdi:faucet-variant
+                color_style: icon
+                color: rgb(82, 45, 128)
+                tap_action:
+                  action: call-service
+                  service: sharkiq.clean_room
+                  data:
+                    rooms:
+                      - cocina
+                  target:
+                    entity_id: vacuum.jaime
+            grid_options:
+              columns: 12
+              rows: 1
+          - square: true
+            type: grid
+            cards:
+              - show_name: false
+                show_icon: true
+                icon: mdi:fan-speed-1
+                color_style: icon
+                type: custom:button-card
+                tap_action:
+                  action: call-service
+                  service: vacuum.set_fan_speed
+                  target:
+                    entity_id: vacuum.jaime
+                  data:
+                    fan_speed: eco
+                styles:
+                  icon:
+                    - color: >
+                        [[[ return states['vacuum.jaime'].attributes.fan_speed
+                        === 'Eco' ? 'rgb(123, 68, 192)' : 'rgb(82, 45, 128)' ;
+                        ]]]
+              - show_name: false
+                show_icon: true
+                color_style: icon
+                color: rgb(82, 45, 128)
+                type: custom:button-card
+                styles:
+                  icon:
+                    - color: >
+                        [[[ return states['vacuum.jaime'].attributes.fan_speed
+                        === 'Normal' ? 'rgb(123, 68, 192)' : 'rgb(82, 45, 128)'
+                        ; ]]]
+                tap_action:
+                  action: call-service
+                  service: vacuum.set_fan_speed
+                  target:
+                    entity_id: vacuum.jaime
+                  data:
+                    fan_speed: normal
+                icon: mdi:fan-speed-2
+              - show_name: false
+                show_icon: true
+                color_style: icon
+                color: rgb(123, 68, 192)
+                type: custom:button-card
+                styles:
+                  icon:
+                    - color: >
+                        [[[ return states['vacuum.jaime'].attributes.fan_speed
+                        === 'Max' ? 'rgb(123, 68, 192)' : 'rgb(82, 45, 128)' ;
+                        ]]]
+                tap_action:
+                  action: call-service
+                  service: vacuum.set_fan_speed
+                  target:
+                    entity_id: vacuum.jaime
+                  data:
+                    fan_speed: max
+                icon: mdi:fan-speed-3
+            grid_options:
+              rows: 2
+              columns: full
+            columns: 3
