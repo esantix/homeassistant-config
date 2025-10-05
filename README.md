@@ -1,4 +1,4 @@
-# Home assitant main dashboard
+# Home assistant main dashboard
 
 Homassistant main dasboard for SharkClean vacuum and PhilipsHue lights.
 
