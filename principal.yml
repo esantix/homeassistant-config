@@ -20,7 +20,7 @@ views:
         cards:
           - type: heading
             show_icon: false
-            heading: Luces
+            heading: ''
             heading_style: title
             card_mod:
               style: |
@@ -49,17 +49,15 @@ views:
                     section_mode: true
                     icon: mdi:lightbulb
                     color_type: icon
-                    color: rgb(255,214,170)
+                    color: rgb(250, 220, 167)
                     tap_action:
                       action: call-service
                       service: light.turn_on
                       target:
                         entity_id: light.comedor
                       data:
-                        rgb_color:
-                          - 255
-                          - 214
-                          - 170
+                        brightness: 255
+                        color_temp: 284
                   - type: custom:button-card
                     section_mode: true
                     icon: mdi:lightbulb
@@ -92,17 +90,15 @@ views:
                     section_mode: true
                     icon: mdi:lightbulb
                     color_type: icon
-                    color: rgb(255,214,170)
+                    color: rgb(250, 220, 167)
                     tap_action:
                       action: call-service
                       service: light.turn_on
                       target:
                         entity_id: light.dormitorio
                       data:
-                        rgb_color:
-                          - 255
-                          - 214
-                          - 170
+                        brightness: 255
+                        color_temp: 284
                   - type: custom:button-card
                     section_mode: true
                     icon: mdi:lightbulb
@@ -135,60 +131,15 @@ views:
                     section_mode: true
                     icon: mdi:lightbulb
                     color_type: icon
-                    color: rgb(255,214,170)
+                    color: rgb(250, 220, 167)
                     tap_action:
                       action: call-service
                       service: light.turn_on
                       target:
                         entity_id: light.escritorio
                       data:
-                        rgb_color:
-                          - 255
-                          - 214
-                          - 170
-                  - type: custom:button-card
-                    section_mode: true
-                    icon: mdi:lightbulb
-                    color_type: icon
-                    color: rgb(255,255,255)
-                    tap_action:
-                      action: call-service
-                      service: light.turn_on
-                      target:
-                        entity_id: light.escritorio
-                      data:
-                        rgb_color:
-                          - 255
-                          - 255
-                          - 255
-          - name: luz-cocina
-            type: grid
-            columns: 2
-            square: false
-            cards:
-              - type: custom:big-slider-card
-                entity: light.dormitorio
-                show_icon: true
-                icon: mdi:faucet-variant
-              - type: grid
-                columns: 2
-                square: false
-                cards:
-                  - type: custom:button-card
-                    section_mode: true
-                    icon: mdi:lightbulb
-                    color_type: icon
-                    color: rgb(255,214,170)
-                    tap_action:
-                      action: call-service
-                      service: light.turn_on
-                      target:
-                        entity_id: light.escritorio
-                      data:
-                        rgb_color:
-                          - 255
-                          - 214
-                          - 170
+                        brightness: 255
+                        color_temp: 284
                   - type: custom:button-card
                     section_mode: true
                     icon: mdi:lightbulb
@@ -214,28 +165,24 @@ views:
                 show_icon: true
                 icon: mdi:home
               - type: grid
-                columns: 4
+                columns: 5
                 square: false
                 cards:
                   - type: custom:button-card
                     section_mode: true
                     icon: mdi:lightbulb-multiple
-                    color_type: icon
-                    color: rgb(255,214,170)
+                    color: rgb(250, 220, 167)
                     tap_action:
                       action: call-service
                       service: light.turn_on
                       target:
                         entity_id: light.todas
                       data:
-                        rgb_color:
-                          - 255
-                          - 214
-                          - 170
+                        brightness: 255
+                        color_temp: 284
                   - type: custom:button-card
                     section_mode: true
                     icon: mdi:lightbulb-multiple
-                    color_type: icon
                     color: rgb(255,255,255)
                     tap_action:
                       action: call-service
@@ -249,9 +196,21 @@ views:
                           - 255
                   - type: custom:button-card
                     section_mode: true
+                    icon: mdi:lightbulb-multiple-off
+                    color_type: icon
+                    color: grey
+                    tap_action:
+                      action: call-service
+                      service: light.turn_off
+                      target:
+                        entity_id: light.todas
+                  - type: custom:button-card
+                    section_mode: true
                     icon: mdi:lightbulb-multiple
                     color_type: icon
-                    color: rgb(255, 132, 0)
+                    styles:
+                      card:
+                        - background: linear-gradient(45deg, rgb(255,0,1), rgb(225,225,0))
                     tap_action:
                       action: call-service
                       service: hue.activate_scene
@@ -261,7 +220,11 @@ views:
                     section_mode: true
                     icon: mdi:lightbulb-multiple
                     color_type: icon
-                    color: rgb(88, 196, 184)
+                    styles:
+                      card:
+                        - background: >-
+                            linear-gradient(45deg, rgb(188,255,110),
+                            rgb(1,2,122))
                     tap_action:
                       action: call-service
                       service: hue.activate_scene
@@ -271,7 +234,6 @@ views:
         type: grid
         cards:
           - type: heading
-            heading: Aspiradora
             heading_style: title
             card_mod:
               style: |
